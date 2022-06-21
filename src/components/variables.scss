@@ -1,0 +1,124 @@
+//品牌色
+$brand-primary: blue; // 品牌色
+// 字体颜色
+$text-color-base: #1f1f1f; // 基本字体色值
+$text-color-caption: #707070; // 次级标题色值
+$text-color-disabled: #B3B3B3; // 失效色值
+$text-color-special: #FF3434; // 文本特殊色
+$text-color-tips: #703600; // 提示信息文字色
+// 分割线
+$border-color-base: #eee; // 分割线色值
+// 背景色
+$fill-body: #f2f4f7; // 页面背景色
+$fill-block: #f2f4f7; // 页面内色块
+$fill-block-tips: #FFF9E4; // 提示类背景色
+$fill-mask-bg: rgba(31, 31, 31, 0.6); // 遮罩层背景色
+// 圆角
+$radius-lg: 30px; // 通栏块圆角
+$radius-md: 20px; // 卡片圆角
+$radius-sm: 12px; // 卡片内元素圆角，比如图片
+// 边距
+$gap-normal: 24px;
+// 字体
+$title-size-page: 40px;
+$title-size-floor-lg: 36px;
+$title-size-floor: 34px;
+$text-size-title-lg: 32px;
+$text-size-title-md: 30px;
+$text-size-caption: 28px;
+$text-size-base: 26px;
+$text-size-caption-sm: 24px;
+// 按钮
+$button-font-size-main: 32px;
+$button-font-size-block: 28px;
+$button-font-size-block-icon: 26px;
+$button-font-size-normal: 24px;
+// 卡片
+//$card-footer-gradient: linear-gradient(14.28deg, rgba(255, 255, 255, 0.2) -12.91%, rgba(210, 224, 252, 0.2) 97.57%), #FFFFFF;
+// 标签
+$tag-font-size: 20px;
+$tag-error-bg: #FFEBEB;
+
+/*单行省略*/
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*双行省略*/
+@mixin ellipsis-double {
+  // word-break: break-all;
+  word-wrap:break-word;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+@mixin flexCC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexCSB{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*图片*/
+@mixin img {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  img[src=""], img:not([src]) {
+    opacity:0;
+  }
+}
+
+@mixin border1px($color:#f2f2f2, $borderRaduis: 0) {
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    border-bottom: solid 1px $color; /*no*/
+    width: 202%;
+    height: 202%;
+    transform: scale(0.5);
+    transform-origin: left top;
+    border-radius: $borderRaduis;
+  }
+}
+// 管理z-index
+@mixin zIndex($selector) {
+  $elmsZIndex: (
+    "alert": 9998, // 弹窗
+    "toast": 9999
+  );
+
+  z-index: map-get($map: $elmsZIndex, $key: $selector);
+}
+@keyframes breath {
+  0% {
+    transform: scale(1, 1);
+  }
+  // 25% {
+  //   transform: scale(0.9, 0.9);
+  // }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  // 75% {
+  //   transform: scale(1.1, 1.1);
+  // }
+  100% {
+    transform: scale(1, 1);
+  }
+}

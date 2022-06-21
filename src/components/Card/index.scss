@@ -1,0 +1,56 @@
+.demo-card{
+  border-radius: $radius-md;
+  overflow: hidden;
+  & + .demo-card{
+    margin-top: 16px;
+  }
+  &-before{
+    background: #fff;
+  }
+  &-footer{
+    background: $card-footer-gradient;
+  }
+  &-container{
+    border-radius: $radius-md;
+    background: #fff;
+    &-content{
+      padding: 28px 24px;
+      &.noPadding{
+        padding: 0
+      }
+    }
+    header + &-content{
+      padding: 0 28px 24px;
+    }
+  }
+  &-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 104px;
+    padding: 0 $gap-normal;
+  }
+  &-title_left{
+    font-size: 34px;
+    font-weight: bold;
+  }
+  &-title_right{
+    display: flex;
+    align-items: center;
+    color: $text-color-caption;
+  }
+  &-arrow_style{
+    // width: 10px;
+    height: 18px;
+    margin-left: 8px;
+    path {
+      stroke: $text-color-caption;
+    }
+  }
+}
+
+
+// 存在header时，容器往上移动20像素
+.demo-card-before + .demo-card-container{
+  margin-top: -20px;
+}
