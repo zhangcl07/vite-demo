@@ -6,30 +6,33 @@ import App from '../App'
  * 路由配置
  */
 const RouterView = () => {
-  const routesConfig = useMemo(() => [
-    {
-      path: '/card',
-      component: React.lazy(() => import('../views/card')),
-      fallback: <div />
-    }
-  ], [])
+  const routesConfig = useMemo(
+    () => [
+      {
+        path: '/card',
+        component: React.lazy(() => import('../views/card')),
+        fallback: <div />,
+      },
+    ],
+    []
+  )
 
   return (
     <Router>
       <>
         <Routes>
-          <Route path="/"
-            element={<App />}
-            key="/" />
+          <Route path="/" element={<App />} key="/" />
           {routesConfig.map((e) => (
-            <Route exact
+            <Route
+              exact
               path={e.path}
               element={
-              <React.Suspense fallback={e.fallback}>
-                <e.component />
-              </React.Suspense>
-            }
-              key={e.path} />
+                <React.Suspense fallback={e.fallback}>
+                  <e.component />
+                </React.Suspense>
+              }
+              key={e.path}
+            />
           ))}
         </Routes>
       </>

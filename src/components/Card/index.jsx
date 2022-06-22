@@ -1,6 +1,5 @@
-import React, { memo, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
-import {ReactComponent as RightArrowSVG} from '@/assets/svg/right_arrow.svg';
+import { memo, useCallback, useMemo } from 'react';
 import './index.scss';
 
 const Card = props => {
@@ -25,7 +24,7 @@ const Card = props => {
 
   // 标题扩展的右侧icon
   const RightIcon = useMemo(()  => {
-    return titleExtRightIcon || RightArrowSVG
+    return titleExtRightIcon || (() => '>')
   }, [titleExtRightIcon])
 
   /**

@@ -4,3 +4,4 @@ dist-ssr
 *.locals
 dist
 yarn.lock
+.vscode

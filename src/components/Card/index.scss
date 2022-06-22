@@ -1,45 +1,45 @@
-.demo-card{
+.demo-card {
   border-radius: $radius-md;
   overflow: hidden;
-  & + .demo-card{
+  & + .demo-card {
     margin-top: 16px;
   }
-  &-before{
+  &-before {
     background: #fff;
   }
-  &-footer{
-    background: $card-footer-gradient;
+  &-footer {
+    background: #efefef;
   }
-  &-container{
+  &-container {
     border-radius: $radius-md;
     background: #fff;
-    &-content{
+    &-content {
       padding: 28px 24px;
-      &.noPadding{
-        padding: 0
+      &.noPadding {
+        padding: 0;
       }
     }
-    header + &-content{
+    header + &-content {
       padding: 0 28px 24px;
     }
   }
-  &-title{
+  &-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 104px;
     padding: 0 $gap-normal;
   }
-  &-title_left{
+  &-title_left {
     font-size: 34px;
     font-weight: bold;
   }
-  &-title_right{
+  &-title_right {
     display: flex;
     align-items: center;
     color: $text-color-caption;
   }
-  &-arrow_style{
+  &-arrow_style {
     // width: 10px;
     height: 18px;
     margin-left: 8px;
@@ -51,6 +51,6 @@
 
 
 // 存在header时，容器往上移动20像素
-.demo-card-before + .demo-card-container{
+.demo-card-before + .demo-card-container {
   margin-top: -20px;
 }
